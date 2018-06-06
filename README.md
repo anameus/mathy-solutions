@@ -5,8 +5,8 @@ This is an ongoing side project where I document my progress as a programmer.
 Some of these projects might reveal how much of a 'noob' I am. BUT:
 You have to start somewhere right?
 
-# Details for each project:
-# Sieve of Eratosthenes
+## Details for each project:
+### Sieve of Eratosthenes
 Goal => This solution should calculate all the primes under 100.
  
 Process => The Python version of this solution was written in June 2016.
