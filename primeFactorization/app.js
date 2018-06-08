@@ -9,6 +9,6 @@ for(let i=2; i<=inputNum;i++){
 		}
 	}
 	if (isPrime) {
-        if(inputNum % i === 0) console.log(i) //lets see if this works...
+        if(inputNum % i === 0) console.log(i);
     }
 }
