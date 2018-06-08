@@ -17,3 +17,8 @@ Looking back I can see that the code I wrote was very clunky and inefficient.
 So I decided to rewrite it. And in JavaScript. Because why not?
 That is the code in 'app.js'. 
 And that is my current version of how to solve this very awesome mathy problem.
+
+### Prime Factorization
+Goal => The user enters a number and the code should calculate the Prime Factors (if there are any) and display them
+
+Process => First attempt: only calculates the primes up untill the input number. Not the solution yet.
