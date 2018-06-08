@@ -22,3 +22,4 @@ And that is my current version of how to solve this very awesome mathy problem.
 Goal => The user enters a number and the code should calculate the Prime Factors (if there are any) and display them
 
 Process => First attempt: only calculates the primes up untill the input number. Not the solution yet.
+Added if statement to test the modulo (%) of the devision of inputNum and the loop variable i. That did the trick!
