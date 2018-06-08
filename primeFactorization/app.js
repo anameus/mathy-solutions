@@ -8,6 +8,7 @@ for(let i=2; i<=inputNum;i++){
 			isPrime = false;
 		}
 	}
-	if (isPrime) console.log(i);
+	if (isPrime) {
+        if(inputNum % i === 0) console.log(i) //lets see if this works...
+    }
 }
-//this only calculates the primes up untill inputNum. this is NOT the solution yet...
