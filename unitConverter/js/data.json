@@ -1,0 +1,5 @@
+{
+    "Temperature":"Celsius,Fahrenheit",
+    "Currency":"Dollars,Rands",
+    "Length": "Meters,Feet"
+}
