@@ -64,16 +64,19 @@ $(document).on("click",".to-conv-item",function(){
     $(".to-conv-btn:first-child").val($(this).text());
 })
 
-$(document).on("click",".btn-primary", function(){
+$(document).on("click",".btn-primary", function(){ //the actual conversion happens here!
+    $(".output").empty();
     let fromConvert = sessionStorage.getItem("fromConvert");
     let toConvert = $(".to-conv-item").text();
-    
     let amountToConv = $(".conv-amount").val();
-   
     let converted = 0;
+    let $outputArea = $(".output");
     if(fromConvert === "Fahrenheit"){
         converted = (amountToConv-32)*(5/9);
-         console.log(converted);
+        $(".output").append("<h2>"+converted+"</h2>");
+    } else if(fromConvert === "Celsius"){
+        converted = (amountToConv/(5/9))+32
+        $(".output").append("<h2>"+converted+"</h2>");
     }
 })
     
