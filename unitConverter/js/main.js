@@ -45,6 +45,7 @@ $(document).on("click",".from-conv-item", function(){
     let listOfUnits = $(".from-conv-item").text();//string of units like: CelciusFarenheid
     let listOfUnitsArr = listOfUnits.match(/[A-Z][a-z]+/g);//split at capital letters and store in array
     let secondDropdownChoice = $(this).text();
+    sessionStorage.setItem("fromConvert", secondDropdownChoice);
     let thirdDropdownChoices = [];
     let indexOfSecondChoice = listOfUnitsArr.indexOf(secondDropdownChoice);
     if(indexOfSecondChoice > -1) {
@@ -61,5 +62,18 @@ $(document).on("click",".from-conv-item", function(){
 $(document).on("click",".to-conv-item",function(){
     $(".to-conv-btn:first-child").text($(this).text()); // updates third dropdown lists button's text
     $(".to-conv-btn:first-child").val($(this).text());
+})
+
+$(document).on("click",".btn-primary", function(){
+    let fromConvert = sessionStorage.getItem("fromConvert");
+    let toConvert = $(".to-conv-item").text();
+    
+    let amountToConv = $(".conv-amount").val();
+   
+    let converted = 0;
+    if(fromConvert === "Fahrenheit"){
+        converted = (amountToConv-32)*(5/9);
+         console.log(converted);
+    }
 })
     
