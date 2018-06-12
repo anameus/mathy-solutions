@@ -1,7 +1,7 @@
 $(document).on("click",".type-conv a", function(){
-    //populate the other dropdown menus:
+    //populate the other dropdown menus on click event on Type of conversion:
     let $dropdown = $(this).text().toLowerCase();
-    $(".from-conv-btn:first-child").text("Choose Type");
+    $(".from-conv-btn:first-child").text("Choose Type");//resets second dropdown list to default when Type changes
     $(".type-conv-btn:first-child").val("Choose Type"); 
 
     $.getJSON("js/data.json", function(data){
@@ -29,21 +29,13 @@ $(document).on("click",".type-conv a", function(){
         });
     })//end of populate dropdown menus 
  
-        //change/update button text with selected link's text:
+        //change/update type button's text with selected link's text:
        $(".type-conv-btn:first-child").text($(this).text());
        $(".type-conv-btn:first-child").val($(this).text()); 
  
 })
 
-$(document).on("click",".from-conv-item", function(){
-    let secondDropdownClick = $(this).text();
+$(document).on("click",".from-conv-item", function(){ //updates second dropdown lists button's text
     $(".from-conv-btn:first-child").text($(this).text());
     $(".from-conv-btn:first-child").val($(this).text());
-    console.log(secondDropdownClick);
-    console.log("Clicked!");
 })
-
-        // $(".dropdown-menu a").click(function(){
-        //     $(".btn:first-child").text($(this).text());
-        //     $(".btn:first-child").val($(this).text());
-        // }); 
