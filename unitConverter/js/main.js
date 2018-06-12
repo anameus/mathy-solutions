@@ -58,4 +58,8 @@ $(document).on("click",".from-conv-item", function(){
     
 })
 
+$(document).on("click",".to-conv-item",function(){
+    $(".to-conv-btn:first-child").text($(this).text()); // updates third dropdown lists button's text
+    $(".to-conv-btn:first-child").val($(this).text());
+})
     
