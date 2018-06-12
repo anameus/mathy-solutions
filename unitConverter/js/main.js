@@ -1,6 +1,7 @@
 $(document).on("click",".type-conv a", function(){
     //populate the other dropdown menus on click event on Type of conversion:
     let $dropdown = $(this).text().toLowerCase();
+ 
     $(".from-conv-btn:first-child").text("Choose Type");//resets second dropdown list to default when Type changes
     $(".type-conv-btn:first-child").val("Choose Type"); 
 
@@ -35,7 +36,26 @@ $(document).on("click",".type-conv a", function(){
  
 })
 
-$(document).on("click",".from-conv-item", function(){ //updates second dropdown lists button's text
-    $(".from-conv-btn:first-child").text($(this).text());
+$(document).on("click",".from-conv-item", function(){ 
+    $(".from-conv-btn:first-child").text($(this).text());//updates second dropdown lists button's text
     $(".from-conv-btn:first-child").val($(this).text());
 })
+
+$(document).on("click",".from-conv-item", function(){
+    let listOfUnits = $(".from-conv-item").text();//string of units like: CelciusFarenheid
+    let listOfUnitsArr = listOfUnits.match(/[A-Z][a-z]+/g);//split at capital letters and store in array
+    let secondDropdownChoice = $(this).text();
+    let thirdDropdownChoices = [];
+    let indexOfSecondChoice = listOfUnitsArr.indexOf(secondDropdownChoice);
+    if(indexOfSecondChoice > -1) {
+        listOfUnitsArr.splice(indexOfSecondChoice,1);//remove secondDropdown choice from thirdDropdown choices
+    }
+    let $toConv = $(".to-conv"); //grab place where third dropdown will be generated
+    $toConv.empty();
+    $.each(listOfUnitsArr,function(index,value){
+        $toConv.append("<a class='dropdown-item to-conv-item' value='"+value+"' href='#'>"+value+"</a>")//generate third drop down
+    })
+    
+})
+
+    
