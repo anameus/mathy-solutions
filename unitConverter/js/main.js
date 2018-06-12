@@ -1,50 +1,47 @@
-$(document).ready(function(){
-    $(function(){
+$(document).on("click",".type-conv a", function(){
+    //populate the other dropdown menus:
+    let $dropdown = $(this).text().toLowerCase();
 
-        $(".dropdown-menu a").click(function(){
-           //change/update button text with selected link's text:
-          $(".btn:first-child").text($(this).text());
-          $(".btn:first-child").val($(this).text());
-           
-       });
-        //populate the other dropdown menus:
-        $(".dropdown-menu a").click(function(){
-            let $dropdown = $(this).text().toLowerCase();
+    $.getJSON("js/data.json", function(data){
+        let convType = $dropdown;
+        let unitsOfType = [];
 
-            $.getJSON("js/data.json", function(data){
-                let convType = $dropdown;
-                let unitsOfType = [];
+        switch(convType){
+            case 'temperature':
+                unitsOfType = data.temperature.split(",");
+                break;
+            case 'currency':
+                unitsOfType = data.currency.split(",");
+                break;
+            case 'length':
+                unitsOfType = data.length.split(",");
+                break;
+            default:
+                unitsOfType = ['Please choose type of conversion'];             
+        }
 
-                switch(convType){
-                    case 'temperature':
-                        unitsOfType = data.temperature.split(",");
-                        break;
-                    case 'currency':
-                        unitsOfType = data.currency.split(",");
-                        break;
-                    case 'length':
-                        unitsOfType = data.length.split(",");
-                        break;
-                    default:
-                        unitsOfType = ['Please choose type of conversion'];
-                        
-                }
-
-                let $fromConv = $(".from-conv");
-                $fromConv.empty();
-                $.each(unitsOfType, function(index,value){
-                    $fromConv.append("<a class='dropdown-item from-conv-item' href='#'>"+value+"</a>");
-                });
-            })
+        let $fromConv = $(".from-conv");
+        $fromConv.empty();
+        $.each(unitsOfType, function(index,value){
+            $fromConv.append("<a class='dropdown-item from-conv-item' value='"+value+"' href='#'>"+value+"</a>");
+        });
+    })//end of populate dropdown menus 
  
-        }); //end of populate dropdown menus
-        
-        $(".dropdown-menu a").click(function(){
-            //change/update button text with selected link's text:
-            $(".btn:first-child").text($(this).text());
-            $(".btn:first-child").val($(this).text());
-        }); 
+        //change/update button text with selected link's text:
+       $(".type-conv-btn:first-child").text($(this).text());
+       $(".type-conv-btn:first-child").val($(this).text()); 
+ 
+})
 
-    });
-   
-});
+$(document).on("click",".from-conv-item", function(){
+    let secondDropdownClick = $(".from-conv-item").text();
+    $(".from-conv-item").text($(this).text());
+    $(".from-conv-item").val($(this).text());
+    console.log(secondDropdownClick);
+    console.log("Clicked!");
+})
+
+        // $(".dropdown-menu a").click(function(){
+        //     $(".btn:first-child").text($(this).text());
+        //     $(".btn:first-child").val($(this).text());
+        // }); 
