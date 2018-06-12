@@ -1,6 +1,8 @@
 $(document).on("click",".type-conv a", function(){
     //populate the other dropdown menus:
     let $dropdown = $(this).text().toLowerCase();
+    $(".from-conv-btn:first-child").text("Choose Type");
+    $(".type-conv-btn:first-child").val("Choose Type"); 
 
     $.getJSON("js/data.json", function(data){
         let convType = $dropdown;
@@ -34,9 +36,9 @@ $(document).on("click",".type-conv a", function(){
 })
 
 $(document).on("click",".from-conv-item", function(){
-    let secondDropdownClick = $(".from-conv-item").text();
-    $(".from-conv-item").text($(this).text());
-    $(".from-conv-item").val($(this).text());
+    let secondDropdownClick = $(this).text();
+    $(".from-conv-btn:first-child").text($(this).text());
+    $(".from-conv-btn:first-child").val($(this).text());
     console.log(secondDropdownClick);
     console.log("Clicked!");
 })
