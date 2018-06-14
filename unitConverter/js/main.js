@@ -70,13 +70,25 @@ $(document).on("click",".btn-primary", function(){ //the actual conversion happe
     let toConvert = $(".to-conv-item").text();
     let amountToConv = $(".conv-amount").val();
     let converted = 0;
-    let $outputArea = $(".output");
+    function output(){$(".output").append("<input placeholder='"+converted+"'>");} 
     if(fromConvert === "Fahrenheit"){
         converted = (amountToConv-32)*(5/9);
-        $(".output").append("<h2>"+converted+"</h2>");
-    } else if(fromConvert === "Celsius"){
+        output();
+    }else if(fromConvert === "Celsius"){
         converted = (amountToConv/(5/9))+32
-        $(".output").append("<h2>"+converted+"</h2>");
+        output();
+    }else if(fromConvert === "Dollars"){
+        converted = (amountToConv*13.16);
+        output();
+    }else if(fromConvert === "Rands"){
+        converted = (amountToConv/13.16);
+        output();
+    }else if(fromConvert === "Meters"){
+        converted = (amountToConv*3.28084);
+        output();
+    }else if(fromConvert === "Feet"){
+        converted = (amountToConv/3.28084);
+        output();
     }
 })
     
