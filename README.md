@@ -27,4 +27,6 @@ Added if statement to test the modulo (%) of the devision of inputNum and the lo
 ### Unit Converter
 Goal => Let the user select the type of conversion (Temperature, currency, volume, mass) from dropdown menu and then the units (dollars to rands etc) and then calculate the converted units.
 
-Process => First steps: Made the dropdown menu's text update according to selected link(type of conversion). Now I need to add the logic that ensures the user can not try to select units that doesn't belong to the type of conversion.
+Process => First steps: Made the dropdown menu's text update according to selected link(type of conversion). Version 1.0 - conversion works for celsius only. Dropdown menus populate as expected. Version 1.1 - Conversion of all included units are functional. 
+
+Future updates=> better UI; more units; input validation
